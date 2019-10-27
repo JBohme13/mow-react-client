@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+    color: darkslategray;
+    font-size: 32px;
+}
+
+p {
+    text-align: center;
+    color: darkslategray;
+    font-size: 16px;
+}
+
+.next-button {
+    margin-left: 45%;
+    margin-right: 45%;
+    width: 10%;
+    font-size: 16px;
+    height: 32px;
+    color: darkslategray;
+}

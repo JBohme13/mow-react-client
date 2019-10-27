@@ -1,0 +1,14 @@
+#nav {
+    display: flex;
+    height: 25%;
+}
+
+.nav-button {
+    width: 25%;
+    height: 36px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: darkslategray;
+}

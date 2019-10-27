@@ -1,0 +1,75 @@
+.form-section {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.form-sub-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.client-checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 20px;
+    font-size: 14px;
+}
+
+.client-label {
+    text-align: left;
+    margin-left: 20%;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120%;
+}
+
+#client-banner {
+    color: darkslategray;
+    font-size: 32px;
+    text-align: center;
+}
+
+#client-sub-banner {
+    color: darkslategray;
+    font-size: 24px;
+    text-align: center;
+}
+
+#client-button {
+    color: darkslategray;
+    height: 32px;
+    width: 78px;
+    margin-left: 45%;
+    margin-right: 45%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#client-select {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 32px;
+    font-size: 14px;
+}
+
+.client-textarea {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 100px;
+    font-size: 14px;
+}
