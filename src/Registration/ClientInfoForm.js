@@ -57,24 +57,26 @@ export default class ClientInfoForm extends Component {
                   onChange={e => value.handleDietaryRestrictionsChange(e.target.value)}
                 />
                 {value.ClientInfo.DietaryRestrictions.touched && <ValidationError message={this.validateDietaryRestrictions()} />}
-                <label 
-                  htmlFor='fish'
-                  className='client-label'
-                >
-                  Do you eat Fish?
-                </label>
-                <select
-                  name='fish'
-                  id='client-select'
-                  required={true}
-                  aria-required='true'
-                  onChange={e => value.handleFishSelectChange(e.target.value)}
-                >
-                    <option value=''>--Select one</option>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'>No</option>
-                </select>
                 <h4 id='client-sub-banner'>Please select all that apply</h4>
+                <div className='form-sub-container'>
+                  <label 
+                    htmlFor='fish'
+                    className='client-label'
+                  >
+                    Do you eat Fish?
+                  </label>
+                  <select
+                    name='fish'
+                    id='form-checkbox-0'
+                    className='client-checkbox'
+                    required={true}
+                    aria-required='true'
+                    onChange={e => value.handleFishSelectChange(e.target.value)}
+                  >
+                      <option value={false}>No</option>
+                      <option value={true}>Yes</option>
+                  </select>
+                </div>
                 <div className='form-sub-container'>
                   <label 
                     htmlFor='checkbox-1'

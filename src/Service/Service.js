@@ -8,7 +8,7 @@ export default class Service extends Component {
         return(
             <section id='service-container'>
                 <h1 id='service-banner'>Building your meal schedule</h1>
-                <h2 className='service-sub-banner'>Start by selecting which meals you would like for each day we deliver (Monday thru Friday).</h2>
+                <h2 className='service-sub-banner'>Start by selecting which meals you would like for each day we deliver (Monday through Friday).</h2>
                 <form id='service-form'>
                     <div className='service-section'>
                         <label 
