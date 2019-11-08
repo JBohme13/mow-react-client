@@ -25,6 +25,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <div className='service-section'>
@@ -42,6 +43,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <div className='service-section'>
@@ -59,6 +61,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <div className='service-section'>
@@ -76,6 +79,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <div className='service-section'>
@@ -93,6 +97,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <h2 className='service-sub-banner'>Next select frozen meals for the weekends (delivered on Fridays)</h2>
@@ -111,6 +116,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <div className='service-section'>
@@ -128,6 +134,7 @@ export default class Service extends Component {
                             <option value='AmOnly'>AM meal only</option>
                             <option value='PmOnly'>PM meal only</option>
                             <option value='both'>Both AM and PM meals</option>
+                            <option value='none'>No meals</option>
                         </select>
                     </div>
                     <button 

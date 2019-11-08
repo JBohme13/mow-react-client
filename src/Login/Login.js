@@ -14,36 +14,34 @@ export default class Login extends Component {
     }
     render() {
         return(
-            <section className='main-container'>
-                <form id='login-form'>
-                    <label htmlFor='user-name'>User Name</label>
-                    <input 
-                        type='text'
-                        id='user-name'
-                        className='login-input'
-                        name='user-name'
-                        required={true}
-                        aria-required='true'
-                        placeholder='Your user name here'
-                    />
-                    <label htmlFor='password'>Password</label>
-                    <input
-                        type='text'
-                        id='password'
-                        className='login-input'
-                        name='password'
-                        required={true}
-                        aria-required='true'
-                        placeholder='Your password here'
-                    />
-                    <button
-                        type='submit'
-                        id='login-button'
-                        onClick={this.handleLoginClick}
-                    >
-                        Login
-                    </button>
-                </form>
+            <form id='login-form'>
+                <label htmlFor='user-name'>User Name</label>
+                <input 
+                    type='text'
+                    id='user-name'
+                    className='login-input'
+                    name='user-name'
+                    required={true}
+                    aria-required='true'
+                    placeholder='Your user name here'
+                />
+                <label htmlFor='password'>Password</label>
+                <input
+                    type='text'
+                    id='password'
+                    className='login-input'
+                    name='password'
+                    required={true}
+                    aria-required='true'
+                    placeholder='Your password here'
+                />
+                <button
+                    type='submit'
+                    id='login-button'
+                    onClick={this.handleLoginClick}
+                >
+                    Login
+                </button>
                 <h2 id='register-header'>New to Meals on Wheels? Click Register below to Sign up!</h2>
                 <button
                     id='register-button' 
@@ -51,7 +49,7 @@ export default class Login extends Component {
                 >
                     Register
                 </button>
-            </section>
+            </form>
         )
     }
 }

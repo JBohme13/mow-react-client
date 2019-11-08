@@ -33,7 +33,8 @@ class App extends Component {
         password: {
           value: '',
           touched: false
-        }
+        },
+        RegisterSelect: ''
       },
       ClientContact: {
         serviceStart: {
@@ -45,6 +46,10 @@ class App extends Component {
           touched: false
         },
         ClientPhone: {
+          value: '',
+          touched: false
+        },
+        ClientEmail: {
           value: '',
           touched: false
         },
@@ -78,6 +83,10 @@ class App extends Component {
           value: '',
           touched: false
         },
+        EmergencyEmail1: {
+          value: '',
+          touched: false
+        },
         EmergencyAddress1: {
           value: '',
           touched: false
@@ -91,6 +100,10 @@ class App extends Component {
           touched: false
         },
         EmergencyPhone2: {
+          value: '',
+          touched: false
+        },
+        EmergencyEmail2: {
           value: '',
           touched: false
         },
@@ -185,10 +198,9 @@ class App extends Component {
           value: value,
           touched: true
         },
-        password: {
-          value: this.state.LoginCreds.password.value,
-          touched: this.state.LoginCreds.password.touched
-        }
+        password: this.state.LoginCreds.password,
+        RegisterSelect: this.state.LoginCreds.RegisterSelect
+        
       }
     })
   }
@@ -196,18 +208,26 @@ class App extends Component {
   handlePasswordChange = value => {
     this.setState({
       LoginCreds: {
-        userName: {
-          value: this.state.LoginCreds.userName.value,
-          touched: this.state.LoginCreds.userName.touched
-        },
+        userName: this.state.LoginCreds.userName,
         password: {
           value: value,
           touched: true
-        }
+        },
+        RegisterSelect: this.state.LoginCreds.RegisterSelect
       }
     })
   }
-  
+
+  handleRegisterSelectChange = value => {
+    this.setState({
+      LoginCreds: {
+        userName: this.state.LoginCreds.userName,
+        password: this.state.LoginCreds.password,
+        RegisterSelect: value
+      }
+    })
+  }
+  //Moved service start from registration to service
   handleServiceStartChange = value => {
     this.setState({
       ClientContact: {
@@ -217,6 +237,7 @@ class App extends Component {
         },
         ClientName: this.state.ClientContact.ClientName,
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: this.state.ClientContact.ClientCity,
         ClientZip: this.state.ClientContact.ClientZip,
@@ -235,6 +256,7 @@ class App extends Component {
           touched: true
         },
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: this.state.ClientContact.ClientCity,
         ClientZip: this.state.ClientContact.ClientZip,
@@ -253,6 +275,26 @@ class App extends Component {
           value: value,
           touched: true
         },
+        ClientEmail: this.state.ClientContact.ClientEmail,
+        ClientAddress: this.state.ClientContact.ClientAddress,
+        ClientCity: this.state.ClientContact.ClientCity,
+        ClientZip: this.state.ClientContact.ClientZip,
+        ClientDob: this.state.ClientContact.ClientDob,
+        DeliveryInstructions: this.state.ClientContact.DeliveryInstructions
+      }
+    })
+  }
+
+  handleClientEmailChange = value => {
+    this.setState({
+      ClientContact: {
+        serviceStart: this.state.ClientContact.serviceStart,
+        ClientName: this.state.ClientContact.ClientName,
+        ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: {
+          value: value,
+          touched: true
+        },
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: this.state.ClientContact.ClientCity,
         ClientZip: this.state.ClientContact.ClientZip,
@@ -268,6 +310,7 @@ class App extends Component {
         serviceStart: this.state.ClientContact.serviceStart,
         ClientName: this.state.ClientContact.ClientName,
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: {
           value: value,
           touched: true
@@ -286,6 +329,7 @@ class App extends Component {
         serviceStart: this.state.ClientContact.serviceStart,
         ClientName: this.state.ClientContact.ClientName,
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: {
           value: value,
@@ -304,6 +348,7 @@ class App extends Component {
         serviceStart: this.state.ClientContact.serviceStart,
         ClientName: this.state.ClientContact.ClientName,
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: this.state.ClientContact.ClientCity,
         ClientZip: {
@@ -322,6 +367,7 @@ class App extends Component {
         serviceStart: this.state.ClientContact.serviceStart,
         ClientName: this.state.ClientContact.ClientName,
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: this.state.ClientContact.ClientCity,
         ClientZip: this.state.ClientContact.ClientZip,
@@ -340,6 +386,7 @@ class App extends Component {
         serviceStart: this.state.ClientContact.serviceStart,
         ClientName: this.state.ClientContact.ClientName,
         ClientPhone: this.state.ClientContact.ClientPhone,
+        ClientEmail: this.state.ClientContact.ClientEmail,
         ClientAddress: this.state.ClientContact.ClientAddress,
         ClientCity: this.state.ClientContact.ClientCity,
         ClientZip: this.state.ClientContact.ClientZip,
@@ -359,10 +406,12 @@ class App extends Component {
           touched: true
         },
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
         EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
       }
@@ -377,10 +426,32 @@ class App extends Component {
           value: value,
           touched: true
         },
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
+        EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
+        EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
+      }
+    })
+  }
+
+  handleEmergencyEmail1 = value => {
+    this.setState({
+      EmergencyContact: {
+        EmergencyName1: this.state.EmergencyContact.EmergencyName1,
+        EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: {
+          value: value,
+          touched: true
+        },
+        EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
+        EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
+        EmergencyName2: this.state.EmergencyContact.EmergencyName2,
+        EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
         EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
       }
@@ -392,6 +463,7 @@ class App extends Component {
       EmergencyContact: {
         EmergencyName1: this.state.EmergencyContact.EmergencyName1,
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: {
           value: value,
           touched: true
@@ -399,6 +471,7 @@ class App extends Component {
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
         EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
       }
@@ -410,6 +483,7 @@ class App extends Component {
       EmergencyContact: {
         EmergencyName1: this.state.EmergencyContact.EmergencyName1,
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: {
           value: value,
@@ -417,6 +491,7 @@ class App extends Component {
         },
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
         EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
       }
@@ -428,6 +503,7 @@ class App extends Component {
       EmergencyContact: {
         EmergencyName1: this.state.EmergencyContact.EmergencyName1,
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: {
@@ -446,10 +522,32 @@ class App extends Component {
       EmergencyContact: {
         EmergencyName1: this.state.EmergencyContact.EmergencyName1,
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: {
+          value: value,
+          touched: true
+        },
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
+        EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
+        EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
+      }
+    })
+  }
+
+  handleEmergencyEmail2 = value => {
+    this.setState({
+      EmergencyContact: {
+        EmergencyName1: this.state.EmergencyContact.EmergencyName1,
+        EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
+        EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
+        EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
+        EmergencyName2: this.state.EmergencyContact.EmergencyName2,
+        EmergencyPhone2: this.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: {
           value: value,
           touched: true
         },
@@ -464,10 +562,12 @@ class App extends Component {
       EmergencyContact: {
         EmergencyName1: this.state.EmergencyContact.EmergencyName1,
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: {
           value: value,
           touched: true
@@ -482,10 +582,12 @@ class App extends Component {
       EmergencyContact: {
         EmergencyName1: this.state.EmergencyContact.EmergencyName1,
         EmergencyPhone1: this.state.EmergencyContact.EmergencyPhone1,
+        EmergencyEmail1: this.state.EmergencyContact.EmergencyEmail1,
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
         EmergencyRelation2: {
           value: value,
@@ -854,6 +956,7 @@ class App extends Component {
       history: this.props.history,
       handleUserNameChange: this.handleUserNameChange,
       handlePasswordChange: this.handlePasswordChange,
+      handleRegisterSelectChange: this.handleRegisterSelectChange,
       handleNextForLandingPage: this.handleNextForLandingPage,
       handleNextForContact: this.handleNextForContact,
       handleNextForEmergency: this.handleNextForEmergency,
@@ -866,6 +969,7 @@ class App extends Component {
       handleServiceStartChange: this.handleServiceStartChange,
       handleClientNameChange: this.handleClientNameChange,
       handleClientPhoneChange: this.handleClientPhoneChange,
+      handleClientEmailChange: this.handleClientEmailChange,
       handleClientAddressChange: this.handleClientAddressChange,
       handleClientCityChange: this.handleClientCityChange,
       handleClientZipChange: this.handleClientZipChange,
@@ -873,10 +977,12 @@ class App extends Component {
       handleDeliveryInstructionsChange: this.handleDeliveryInstructionsChange,
       handleEmergencyName1: this.handleEmergencyName1,
       handleEmergencyPhone1: this.handleEmergencyPhone1,
+      handleEmergencyEmail1: this.handleEmergencyEmail1,
       handleEmergencyAddress1: this.handleEmergencyAddress1,
       handleEmergencyRelation1: this.handleEmergencyRelation1,
       handleEmergencyName2: this.handleEmergencyName2,
       handleEmergencyPhone2: this.handleEmergencyPhone2,
+      handleEmergencyEmail2: this.handleEmergencyEmail2,
       handleEmergencyAddress2: this.handleEmergencyAddress2,
       handleEmergencyRelation2: this.handleEmergencyRelation2,
       handleReasonForServiceChange: this.handleReasonForServiceChange,

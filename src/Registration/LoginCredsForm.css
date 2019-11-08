@@ -3,3 +3,13 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+#register-select {
+    height: 40px;
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}

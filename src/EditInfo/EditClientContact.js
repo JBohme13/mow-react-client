@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Context from '../Context'
-import ValidationError from '../ValidationError'
+import ValidationError from '../ValidationError/ValidationError'
 import './EditClientContact.css'
 
 export default class EditClientContact extends Component {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Context from '../Context'
-import './Thankyou.css'
+import SectionBanner from '../BasicComponents/SectionBanner'
+import SubBanner from '../BasicComponents/SubBanner'
+import Button from '../BasicComponents/Button'
 
 export default class Thankyou extends Component {
     static contextType = Context;
@@ -12,12 +14,12 @@ export default class Thankyou extends Component {
     render() {
         return(
             <div>
-                <h2 id='thankyou-banner'>Thank you for registering with Fresh Meals on Wheels!</h2>
-                <p id='thankyou-sub-banner'>Click continue to go to your home page where you can select a meal schedule to begin service!</p>
-                <button
-                    id='thankyou-button'
+                <SectionBanner name='Thank you for registering with Fresh Meals on Wheels!'/>
+                <SubBanner name='Click continue to go to your home page where you can select a meal schedule to begin service!'/>
+                <Button
+                    name='Continue'
                     onClick={this.handleContinueButton}
-                >Continue</button>
+                />
             </div>
         )
     }

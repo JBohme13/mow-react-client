@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Context from '../Context'
-import ValidationError from '../ValidationError'
+import ValidationError from '../ValidationError/ValidationError'
 
 export default class EditEmergencyContact extends Component {
     static contextType = Context;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Context from '../Context'
 import './LoginCredsForm.css'
-import ValidationError from '../ValidationError';
+import ValidationError from '../ValidationError/ValidationError';
+import ExplainBox from '../ExplainBox/ExplainBox';
 
 export default class LoginCredsForm extends Component {
     static contextType = Context;
@@ -47,6 +48,24 @@ export default class LoginCredsForm extends Component {
         return(
             <section>
                 <form id='new-login-form'>
+                    <label
+                        htmlFor='register-select'
+                        className='login-label'
+                    >
+                        Who will be completing this registraton?
+                    </label>
+                    <select 
+                        id='register-select'
+                        onChange={e => value.handleRegisterSelectChange(e.target.value)}
+                    >
+                        <option value=''>--Select one</option>
+                        <option value='client'>Self</option>
+                        <option value='family'>Family member</option>
+                        <option value='friend'>Friend</option>
+                        <option vlaue='socail-worker'>Social Worker</option>
+                        <option value='other'>Other</option>
+                    </select>
+                    {value.LoginCreds.RegisterSelect === 'other' ? <ExplainBox /> : ''}
                     <label 
                         htmlFor='user-name'
                         className='login-label'
