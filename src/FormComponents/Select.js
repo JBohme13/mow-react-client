@@ -9,7 +9,7 @@ export default function Select(props) {
         <section id='select-container'>
             <label
                 htmlFor={props.id}
-                className='input-label'
+                className='select-label'
             >
                 {props.name}
             </label>
