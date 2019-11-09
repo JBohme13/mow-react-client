@@ -91,7 +91,7 @@ export default class EmergencyContactForm extends Component {
                 name='Name'
                 required={true}
                 placeholder='Emergency Contact Name'
-                onChange={e => this.context.handleEmergencyName1(e.target.value)}
+                onChange={e => value.handleEmergencyName1(e.target.value)}
               />
               {value.EmergencyContact.EmergencyName1.touched && <ValidationError message={this.validateEmergencyName1()} />}
               <TextInput
@@ -100,7 +100,7 @@ export default class EmergencyContactForm extends Component {
                 name='Phone'
                 required={true}
                 placeholder='Emergency Contact Phone'
-                onChange={e => this.context.handleEmergencyPhone1(e.target.value)}
+                onChange={e => value.handleEmergencyPhone1(e.target.value)}
               />
               {value.EmergencyContact.EmergencyPhone1.touched && <ValidationError message={this.validateEmergencyPhone1()} />}
               <TextInput
@@ -109,9 +109,8 @@ export default class EmergencyContactForm extends Component {
                 name='Email'
                 required={true}
                 placeholder='Emergency Contact Email'
-                onChange={e => this.context.handleEmergencyEmail1(e.target.value)}
+                onChange={e => value.handleEmergencyEmail1(e.target.value)}
               />
-              
               {value.EmergencyContact.EmergencyEmail1.touched && <ValidationError message={this.validateEmergencyEmail1()} />}
               <TextInput
                 type='text'
@@ -119,7 +118,7 @@ export default class EmergencyContactForm extends Component {
                 name='Address'
                 required={true}
                 placeholder='Emergency Contact Addresss'
-                onChange={e => this.context.handleEmergencyAddress1(e.target.value)}
+                onChange={e => value.handleEmergencyAddress1(e.target.value)}
               />
               {value.EmergencyContact.EmergencyAddress1.touched && <ValidationError message={this.validateEmergencyAddress1()} />}
               <TextInput
@@ -128,7 +127,7 @@ export default class EmergencyContactForm extends Component {
                 name='Relation'
                 required={true}
                 placeholder='Emergency Contact Relation'
-                onChange={e => this.context.handleEmergencyRelation1(e.target.value)}
+                onChange={e => value.handleEmergencyRelation1(e.target.value)}
               />
               {value.EmergencyContact.EmergencyRelation1.touched && <ValidationError message={this.validateEmergencyRelation1()} />}
               <SubBanner name='Secondary Contact'/>
@@ -138,7 +137,7 @@ export default class EmergencyContactForm extends Component {
                 name='Name'
                 required={false}
                 placeholder='Emergency Contact Name'
-                onChange={e => this.context.handleEmergencyName2(e.target.value)}
+                onChange={e => value.handleEmergencyName2(e.target.value)}
               />
               <TextInput
                 type='text'
@@ -146,7 +145,7 @@ export default class EmergencyContactForm extends Component {
                 name='Phone'
                 required={false}
                 placeholder='Emergency Contact Phone'
-                onChange={e => this.context.handleEmergencyPhone2(e.target.value)}
+                onChange={e => value.handleEmergencyPhone2(e.target.value)}
               />
               {value.EmergencyContact.EmergencyPhone2.touched && <ValidationError message={this.validateEmergencyPhone2()} />}
               <TextInput
@@ -155,7 +154,7 @@ export default class EmergencyContactForm extends Component {
                 name='Email'
                 required={false}
                 placeholder='Emergency Contact Email'
-                onChange={e => this.context.handleEmergencyEmail2(e.target.value)}
+                onChange={e => value.handleEmergencyEmail2(e.target.value)}
               />
               {value.EmergencyContact.EmergencyEmail2.touched && <ValidationError message={this.validateEmergencyEmail2()} />}
               <TextInput
@@ -164,7 +163,7 @@ export default class EmergencyContactForm extends Component {
                 name='Address'
                 required={false}
                 placeholder='Emergency Contact Name'
-                onChange={e => this.context.handleEmergencyAddress2(e.target.value)}
+                onChange={e => value.handleEmergencyAddress2(e.target.value)}
               />
               <TextInput
                 type='text'
@@ -172,7 +171,7 @@ export default class EmergencyContactForm extends Component {
                 name='Relation'
                 required={false}
                 placeholder='Emergency Contact Relation'
-                onChange={e => this.context.handleEmergencyRelation2(e.target.value)}
+                onChange={e => value.handleEmergencyRelation2(e.target.value)}
               />
               <Button
                 name='Continue'

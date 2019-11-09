@@ -54,7 +54,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleLimitedVisionChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.LimitedVision === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.LimitedVision === 'true' ? <ExplainBox id='client-select-1'/> : ''}
               <Select
                 id='client-select-2'
                 name='Hearing'
@@ -62,7 +62,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleLimitedHearingChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.LimitedHearing === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.LimitedHearing === 'true' ? <ExplainBox id='client-select-2'/> : ''}
               <Select
                 id='client-select-5'
                 name='Mobility'
@@ -70,7 +70,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleLimitedMobilityChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.LimitedMobility === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.LimitedMobility === 'true' ? <ExplainBox id='client-select-3'/> : ''}
               <Select
                 id='client-select-6'
                 name='Confusion'
@@ -78,7 +78,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleConfusionChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.Confusion === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.Confusion === 'true' ? <ExplainBox id='client-select-4'/> : ''}
               <Select
                 id='client-select-3'
                 name='Do you require oxygen?'
@@ -86,7 +86,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleRequireOxygenChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.RequireOxygen === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.RequireOxygen === 'true' ? <ExplainBox id='client-select-5'/> : ''}
               <Select
                 id='client-select-4'
                 name='Are you a smoker?'
@@ -94,7 +94,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleSmokerChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.Smoker === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.Smoker === 'true' ? <ExplainBox id='client-select-6'/> : ''}
               <Select
                 id='client-select-7'
                 name='Do you have Lifeline?'
@@ -102,7 +102,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleLifeLineChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.Lifeline === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.Lifeline === 'true' ? <ExplainBox id='client-select-7'/> : ''}
               <Select
                 id='client-select-8'
                 name='Do you have pets?'
@@ -110,7 +110,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handlePetsChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.Pets === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.Pets === 'true' ? <ExplainBox id='client-select-8'/> : ''}
               <Select
                 id='client-select-9'
                 name='Do you take more than 4 medications daily?'
@@ -118,7 +118,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleMedicationsChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.MedsTaken === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.MedsTaken === 'true' ? <ExplainBox id='client-select-9'/> : ''}
               <Select
                 id='client-select-10'
                 name='Are you a Military Veteran?'
@@ -126,7 +126,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleFormerMilitayrChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              {value.ClientInfo.FormerMilitary === 'true' ? <ExplainBox /> : ''}
+              {value.ClientInfo.FormerMilitary === 'true' ? <ExplainBox id='client-select-10'/> : ''}
               <Button
                 name='Continue'
                 onClick={event => value.handleNextForInfo(event)}

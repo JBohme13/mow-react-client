@@ -2,8 +2,8 @@ import React from 'react'
 import './Select.css'
 
 export default function Select(props) {
-    let options = props.options.map(option => {
-                    return <option value={option.value}>{option.name}</option>
+    let options = props.options.map((option, i) => {
+                    return <option key={i} value={option.value}>{option.name}</option>
                   })
     return(
         <section id='select-container'>

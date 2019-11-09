@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import Context from '../Context'
 import ValidationError from '../ValidationError/ValidationError'
+import SectionBanner from '../BasicComponents/SectionBanner'
+import SubBanner from '../BasicComponents/SubBanner'
+import Button from '../BasicComponents/Button'
+import ExplainBox from '../BasicComponents/ExplainBox'
+import TextArea from '../FormComponents/TextArea'
+import Select from '../FormComponents/Select'
 
 export default class EditClientinfo extends Component {
     static contextType = Context;
@@ -21,248 +27,140 @@ export default class EditClientinfo extends Component {
     render () {
         const value = this.context;
         return (
-            <div className='form-container'>
-              <form className='form-section'>
-                <h3 id='client-banner'>Personal Information</h3>
-                <label 
-                  htmlFor='reason-for-service'
-                  className='client-label'
-                >
-                  Reason for service
-                </label>
-                <textarea
-                  name='reason-for-service'
-                  id='form-reason-for-service'
-                  className='client-textarea'
-                  required={true}
-                  aria-required='true'
-                  placeholder='*future instructions here*'
-                  onChange={e => value.handleReasonForServiceChange(e.target.value)}
-                />
-                {value.ClientInfo.ReasonForService.touched && <ValidationError message={this.validateReasonForService()} />}
-                <label 
-                  htmlFor='dietary-restrictions'
-                  className='client-label'
-                >
-                  Dietary Restrictions
-                </label>
-                <textarea
-                  name='dietary-restrictions'
-                  id='form-dietary-restrictions'
-                  className='client-textarea'
-                  required={true}
-                  aria-required='true'
-                  placeholder='*future instructions here*'
-                  onChange={e => value.handleDietaryRestrictionsChange(e.target.value)}
-                />
-                {value.ClientInfo.DietaryRestrictions.touched && <ValidationError message={this.validateDietaryRestrictions()} />}
-                <label 
-                  htmlFor='fish'
-                  className='client-label'
-                >
-                  Do you eat Fish?
-                </label>
-                <select
-                  name='fish'
-                  id='client-select'
-                  required={true}
-                  aria-required='true'
-                  onChange={e => value.handleFishSelectChange(e.target.value)}
-                >
-                    <option value=''>--Select one</option>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'>No</option>
-                </select>
-                <h4 id='client-sub-banner'>Please select all that apply</h4>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-1'
-                    className='client-label'
-                  >
-                    Limited Vision
-                  </label>
-                  <select
-                    name='checkbox-1'
-                    id='form-checkbox-1'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleLimitedVisionChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-2'
-                    className='client-label'
-                  >
-                    Limited Hearing
-                  </label>
-                  <select 
-
-                    name='checkbox-2'
-                    id='form-checkbox-2'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleLimitedHearingChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-3'
-                    className='client-label'
-                  >
-                    Require Oxygen
-                  </label>
-                  <select
-                    name='checkbox-3'
-                    id='form-checkbox-3'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleRequireOxygenChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-4'
-                    className='client-label'
-                  >
-                    Smoker
-                  </label>
-                  <select
-                    name='checkbox-4'
-                    id='form-checkbox-4'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleSmokerChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-5'
-                    className='client-label'
-                  >
-                    Limited Mobility
-                  </label>
-                  <select
-                    name='checkbox-5'
-                    id='form-checkbox-5'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleLimitedMobilityChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-6'
-                    className='client-label'
-                  >
-                    Confusion
-                  </label>
-                  <select
-                    name='checkbox-5'
-                    id='form-checkbox-6'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleConfusionChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-7'
-                    className='client-label'
-                  >
-                    Lifeline
-                  </label>
-                  <select
-                    name='chekcbox-7'
-                    id='form-checkbox-7'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleLifeLineChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-8'
-                    className='client-label'
-                  >
-                    Pets
-                  </label>
-                  <select
-                    name='checkbox-8'
-                    id='form-checkbox-8'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handlePetsChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-9'
-                    className='client-label'
-                  >
-                    Medications taken more than 4 times daily
-                  </label>
-                  <select
-                    name='checkbox-9'
-                    id='form-checkbox-9'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleMedicationsChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <div className='form-sub-container'>
-                  <label 
-                    htmlFor='checkbox-10'
-                    className='client-label'
-                  >
-                    Former Military
-                  </label>
-                  <select
-                    name='checkbox-10'
-                    id='form-checkbox-10'
-                    className='client-checkbox'
-                    required={false}
-                    onChange={e => value.handleFormerMilitayrChange(e.target.value)}
-                  >
-                    <option value={false}>No</option>
-                    <option value={true}>Yes</option>
-                  </select> 
-                </div>
-                <button
-                  id='client-button'
-                  onClick={event => value.handleEditClientInfoNext(event)}
-                >
-                    Save
-                </button>
-              </form>
-            </div>
+          <form className='form-section'>
+            <SectionBanner name='Personal Information'/>
+            <TextArea
+              name='Reason For Service'
+              id='form-reason-for-service'
+              required={true}
+              placeholder='*future instructions here*'
+              onChange={e => value.handleReasonForServiceChange(e.target.value)}
+            />
+            {value.ClientInfo.ReasonForService.touched && <ValidationError message={this.validateReasonForService()} />}
+            <TextArea
+              name='Dietary Restrictions'
+              id='form-dietary-restrictions'
+              required={true}
+              placeholder='*future instructions here*'
+              onChange={e => value.handleDietaryRestrictionsChange(e.target.value)}
+            />
+            {value.ClientInfo.DietaryRestrictions.touched && <ValidationError message={this.validateDietaryRestrictions()} />}
+            <SubBanner name='Do you have limitations with any of the following?'/>
+            <Select
+              name='Vision'
+              id='form-select-1'
+              required={false}
+              onChange={e => value.handleLimitedVisionChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.LimitedVision === 'true' ? <ExplainBox id='form-select-1'/> : ''}
+            <Select
+              name='Hearing'
+              id='form-select-2'
+              required={false}
+              onChange={e => value.handleLimitedHearingChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.LimitedHearing === 'true' ? <ExplainBox id='form-select-2'/> : ''}
+            <Select
+              name='Mobility'
+              id='form-select-3'
+              required={false}
+              onChange={e => value.handleLimitedMobilityChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.LimitedMobility === 'true' ? <ExplainBox id='form-select-3'/> : ''}
+            <Select
+              name='Confusion'
+              id='form-select-4'
+              required={false}
+              onChange={e => value.handleConfusionChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.Confusion === 'true' ? <ExplainBox id='form-select-4'/> : ''}
+            <Select
+              name='Do you require oxygen?'
+              id='form-select-5'
+              required={false}
+              onChange={e => value.handleRequireOxygenChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.RequireOxygen === 'true' ? <ExplainBox id='form-select-5'/> : ''}
+            <Select
+              name='Are you a smoker?'
+              id='form-select-6'
+              required={false}
+              onChange={e => value.handleSmokerChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.Smoker === 'true' ? <ExplainBox id='form-select-6'/> : ''}
+            <Select
+              name='Do you have Lifeline?'
+              id='form-select-7'
+              required={false}
+              onChange={e => value.handleLifeLineChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'yes'}
+              ]}
+            />
+            {value.ClientInfo.Lifeline === 'true' ? <ExplainBox id='form-select-7'/> : ''}
+            <Select
+              name='Do you have any pets?'
+              id='form-select-8'
+              required={false}
+              onChange={e => value.handlePetsChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.Pets === 'true' ? <ExplainBox id='form-select-8'/> : ''}
+            <Select
+              name='Do you take more than 4 medications daily?'
+              id='form-select-9'
+              required={false}
+              onChange={e => value.handleMedicationsChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.MedsTaken === 'true' ? <ExplainBox id='form-select-9'/> : ''}
+            <Select
+              name='Are you former military?'
+              id='form-select-10'
+              required={false}
+              onChange={e => value.handleFormerMilitayrChange(e.target.value)}
+              options={[
+                {value: false, name: 'No'},
+                {value: true, name: 'Yes'}
+              ]}
+            />
+            {value.ClientInfo.FormerMilitary === 'true' ? <ExplainBox id='form-select-10'/> : ''}
+            <Button
+              name='Save'
+              onClick={event => value.handleEditClientInfoNext(event)}
+            />
+          </form>
         )
     }
 }

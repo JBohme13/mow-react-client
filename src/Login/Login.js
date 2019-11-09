@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Context from '../Context'
-import SectionBanner from '../BasicComponents/SectionBanner'
 import SubBanner from '../BasicComponents/SubBanner'
 import Button from '../BasicComponents/Button'
 import TextInput from '../FormComponents/TextInput'

@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import Context from '../Context'
 import ValidationError from '../ValidationError/ValidationError'
-import './EditClientContact.css'
+import SectionBanner from '../BasicComponents/SectionBanner'
+import Button from '../BasicComponents/Button'
+import TextInput from '../FormComponents/TextInput'
+import TextArea from '../FormComponents/TextArea'
 
 export default class EditClientContact extends Component {
     static contextType = Context;
@@ -72,134 +75,82 @@ export default class EditClientContact extends Component {
     render () {
       const value = this.context;
         return(
-                <form className='new-client-form'>
-                  <div className='form-section'>
-                    <h3 id='contact-banner'>Contact information</h3>
-                    <label 
-                      htmlFor='client-name'
-                      className='contact-label'
-                    >
-                      Name
-                    </label>
-                    <input
-                      type='text'
-                      name='client-name'
-                      id='client-name'
-                      className='contact-input'
-                      required={true}
-                      aria-required={true}
-                      placeholder='Your Name Here'
-                      onChange={e => value.handleClientNameChange(e.target.value)}
-                    />
-                    {this.context.ClientContact.ClientName.touched && <ValidationError message={this.validateClientName()} />}
-                    <label 
-                      htmlFor='client-phone'
-                      className='contact-label'
-                    >
-                      Phone Number
-                    </label>
-                    <input
-                      type='text'
-                      name='client-phone'
-                      id='client-phone'
-                      className='contact-input'
-                      required={true}
-                      aria-required='true'
-                      placeholder='(###) ### - ####'
-                      onChange={e => value.handleClientPhoneChange(e.target.value)}
-                    />
-                    {this.context.ClientContact.ClientPhone.touched && <ValidationError message={this.validateClientPhone()} />}
-                    <label 
-                      htmlFor='client-address'
-                      className='contact-label'
-                    >
-                      Delivery Address
-                    </label>
-                    <input
-                      type='text'
-                      name='client-address'
-                      id='client-address'
-                      className='contact-input'
-                      required={true}
-                      aria-required='true'
-                      placeholder='Your Delivery Address Here'
-                      onChange={e => value.handleClientAddressChange(e.target.value)}
-                    />
-                    {this.context.ClientContact.ClientAddress.touched && <ValidationError message={this.validateClientAddress()} />}
-                    <label 
-                      htmlFor='client-city'
-                      className='contact-label'
-                    >
-                      City
-                    </label>
-                    <input
-                      type='text'
-                      name='client-city'
-                      id='client-city'
-                      className='contact-input'
-                      required={true}
-                      aria-required='true'
-                      placeholder='Your City'
-                      onChange={e => value.handleClientCityChange(e.target.value)}
-                    />
-                    {this.context.ClientContact.ClientCity.touched && <ValidationError message={this.validateClientCity()} />}
-                    <label 
-                      htmlFor='client-zip'
-                      className='contact-label'
-                    >
-                      Zip Code
-                    </label>
-                    <input
-                      type='text'
-                      name='client-zip'
-                      id='client-zip'
-                      className='contact-input'
-                      required={true}
-                      aria-required='true'
-                      placeholder='Your Zip Code'
-                      onChange={e => value.handleClientZipChange(e.target.value)}
-                    />
-                    {this.context.ClientContact.ClientZip.touched && <ValidationError message={this.validateClientZip()} />}
-                    <label 
-                      htmlFor='client-dob'
-                      className='contact-label'
-                    >
-                      Date Of Birth
-                    </label>
-                    <input
-                      type='date'
-                      name='client-dob'
-                      id='client-dob'
-                      className='contact-input'
-                      required={true}
-                      aria-required='true'
-                      placeholder='mm/dd/yyy'
-                      onChange={e => value.handleClientDobChange(e.target.value)}
-                    />
-                    {this.context.ClientContact.ClientDob.touched && <ValidationError message={this.validateClientDob()} />}
-                    <label 
-                      htmlFor='delivery-instructions'
-                      className='contact-label'
-                    >
-                        Delivery Instructions
-                    </label>
-                    <textarea
-                      type='text'
-                      name='delivery-instructions'
-                      id='contact-delivery-instructions'
-                      className='contact-input'
-                      aria-required='true'
-                      placeholder='i.e. come to the side door'
-                      onChange={e => value.handleDeliveryInstructionsChange(e.target.value)}
-                    />
-                  </div>
-                  <button
-                    id='contact-button'
-                    onClick={event => value.handleEditClientContactNext(event)}
-                  >
-                    Save
-                  </button>
-                </form>
+          <form className='form-section'>
+            <SectionBanner name='Contact information'/>
+            <TextInput
+              type='text'
+              name='Name'
+              id='client-name'
+              required={true}
+              placeholder='Your Name Here'
+              onChange={e => value.handleClientNameChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientName.touched && <ValidationError message={this.validateClientName()} />}
+            <TextInput
+              type='text'
+              name='Phone'
+              id='client-phone'
+              required={true}
+              placeholder='(###) ### - ####'
+              onChange={e => value.handleClientPhoneChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientPhone.touched && <ValidationError message={this.validateClientPhone()} />}
+            <TextInput
+              type='text'
+              name='Email'
+              id='client-address'
+              required={true}
+              placeholder='Your Delivery Address Here'
+              onChange={e => value.handleClientEmailChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientAddress.touched && <ValidationError message={this.validateClientAddress()} />}
+            <TextInput
+              type='text'
+              name='Address'
+              id='client-address'
+              required={true}
+              placeholder='Your Delivery Address Here'
+              onChange={e => value.handleClientAddressChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientAddress.touched && <ValidationError message={this.validateClientAddress()} />}
+            <TextInput
+              type='text'
+              name='City'
+              id='client-city'
+              required={true}
+              placeholder='Your City'
+              onChange={e => value.handleClientCityChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientCity.touched && <ValidationError message={this.validateClientCity()} />}
+            <TextInput
+              type='text'
+              name='Zip Code'
+              id='client-address'
+              required={true}
+              placeholder='Your Delivery Address Here'
+              onChange={e => value.handleClientZipChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientAddress.touched && <ValidationError message={this.validateClientZip()} />}
+            <TextInput
+              type='date'
+              name='Date of Birth'
+              id='client-dob'
+              required={true}
+              placeholder='mm/dd/yyy'
+              onChange={e => value.handleClientDobChange(e.target.value)}
+            />
+            {this.context.ClientContact.ClientDob.touched && <ValidationError message={this.validateClientDob()} />}
+            <TextArea
+              name='Delivery Instructions'
+              id='contact-delivery-instructions'
+              placeholder='i.e. come to the side door'
+              onChange={e => value.handleDeliveryInstructionsChange(e.target.value)}
+            />
+            <Button
+              name='Save'
+              onClick={event => value.handleEditClientContactNext(event)}
+            />
+          </form>
         )
     }
 }

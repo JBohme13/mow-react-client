@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Context from '../Context'
 import './LoginCredsForm.css'
 import ValidationError from '../ValidationError/ValidationError';
+import TextInput from '../FormComponents/TextInput'
+import Select from '../FormComponents/Select'
+import Button from '../BasicComponents/Button'
 import ExplainBox from '../BasicComponents/ExplainBox';
 
 export default class LoginCredsForm extends Component {
@@ -46,69 +49,47 @@ export default class LoginCredsForm extends Component {
     render() {
         const value = this.context;
         return(
-            <section>
-                <form id='new-login-form'>
-                    <label
-                        htmlFor='register-select'
-                        className='login-label'
-                    >
-                        Who will be completing this registraton?
-                    </label>
-                    <select 
-                        id='register-select'
-                        onChange={e => value.handleRegisterSelectChange(e.target.value)}
-                    >
-                        <option value=''>--Select one</option>
-                        <option value='client'>Self</option>
-                        <option value='family'>Family member</option>
-                        <option value='friend'>Friend</option>
-                        <option vlaue='socail-worker'>Social Worker</option>
-                        <option value='other'>Other</option>
-                    </select>
-                    {value.LoginCreds.RegisterSelect === 'other' ? <ExplainBox /> : ''}
-                    <label 
-                        htmlFor='user-name'
-                        className='login-label'
-                    >
-                        Select your user Name
-                    </label>
-                    <input 
-                        type='text'
-                        id='new-user-name'
-                        name='user-name'
-                        className='login-input'
-                        required={true}
-                        aria-required='true'
-                        placeholder='Your user name here'
-                        onChange={e => value.handleUserNameChange(e.target.value)}
-                    />
-                    {value.LoginCreds.userName.touched && <ValidationError message={this.validateNewUserName()} /> }
-                    <label 
-                        htmlFor='password'
-                        className='login-label'
-                    >
-                        Enter your new password
-                    </label>
-                    <input
-                        type='text'
-                        id='new-password'
-                        name='password'
-                        className='login-input'
-                        required={true}
-                        aria-required='true'
-                        placeholder='Your password here'
-                        onChange={e => value.handlePasswordChange(e.target.value)}
-                    />
-                    {value.LoginCreds.password.touched &&  <ValidationError message={this.ValidateNewPassword()} />}
-                    <button
-                        type='submit'
-                        id='login-button'
-                        onClick={event => this.handleNewLoginClick(event)}
-                    >
-                        Continue
-                    </button>
-                </form>
-            </section>
+            <form id='new-login-form'>
+                <TextInput
+                    type='text'
+                    id='new-user-name'
+                    name='User Name'
+                    required={true}
+                    placeholder='Your user name here'
+                    onChange={e => value.handleUserNameChange(e.target.value)}
+                />
+                {value.LoginCreds.userName.touched && <ValidationError message={this.validateNewUserName()} /> }
+                <TextInput
+                    type='text'
+                    id='new-password'
+                    name='Password'
+                    required={true}
+                    placeholder='Your password here'
+                    onChange={e => value.handlePasswordChange(e.target.value)}
+                />
+                {value.LoginCreds.password.touched &&  <ValidationError message={this.ValidateNewPassword()} />}
+                <Select
+                    id='register-select'
+                    name='Who will be completing this registration?'
+                    required={true}
+                    onChange={e => value.handleRegisterSelectChange(e.target.value)}
+                    options={[
+                        {value:'', name:'--Select one'},
+                        {value:'client', name:'Self'},
+                        {value:'family', name:'Family member'},
+                        {value:'friend', name:'Friend'},
+                        {value:'social-worker', name:'Social worker'},
+                        {value:'other', name:'Other'}
+                    ]}
+                />
+                {value.LoginCreds.RegisterSelect === 'other' ? <ExplainBox id='register-select'/> : ''}
+                
+                {value.LoginCreds.userName.touched && <ValidationError message={this.validateNewUserName()} /> }
+                <Button
+                    name='Continue'
+                    onClick={event => this.handleNewLoginClick(event)}
+                />
+            </form>
         )
     }
 }

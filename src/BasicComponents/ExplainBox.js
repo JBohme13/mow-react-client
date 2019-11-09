@@ -1,7 +1,7 @@
 import React from 'react'
 import './ExplainBox.css'
 
-export default function ExplainBox() {
+export default function ExplainBox(props) {
     return (
         <section id='explain-container'>
             <label 
@@ -12,7 +12,8 @@ export default function ExplainBox() {
             </label>
             <textarea
                 type='text'
-                id='explain-box'
+                id={props.id}
+                className='explain-box'
                 aria-required='true'
             >   
             </textarea>

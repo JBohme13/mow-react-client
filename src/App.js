@@ -398,6 +398,7 @@ class App extends Component {
       }
     })
   }
+
   handleEmergencyName1 = value => {
     this.setState({
       EmergencyContact: {
@@ -511,6 +512,7 @@ class App extends Component {
           touched: true
         },
         EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
+        EmergencyEmail2: this.state.EmergencyContact.EmergencyEmail2,
         EmergencyAddress2: this.state.EmergencyContact.EmergencyAddress2,
         EmergencyRelation2: this.state.EmergencyContact.EmergencyRelation2
       }
@@ -536,7 +538,7 @@ class App extends Component {
       }
     })
   }
-
+  
   handleEmergencyEmail2 = value => {
     this.setState({
       EmergencyContact: {
@@ -546,7 +548,7 @@ class App extends Component {
         EmergencyAddress1: this.state.EmergencyContact.EmergencyAddress1,
         EmergencyRelation1: this.state.EmergencyContact.EmergencyRelation1,
         EmergencyName2: this.state.EmergencyContact.EmergencyName2,
-        EmergencyPhone2: this.EmergencyContact.EmergencyPhone2,
+        EmergencyPhone2: this.state.EmergencyContact.EmergencyPhone2,
         EmergencyEmail2: {
           value: value,
           touched: true
