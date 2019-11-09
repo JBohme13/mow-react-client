@@ -5,6 +5,7 @@ import Select from '../FormComponents/Select'
 import SectionBanner from '../BasicComponents/SectionBanner'
 import SubBanner from '../BasicComponents/SubBanner'
 import Button from '../BasicComponents/Button'
+import ExplainBox from '../BasicComponents/ExplainBox'
 import Context from '../Context'
 import './ClientInfoForm.css'
 
@@ -45,42 +46,31 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleDietaryRestrictionsChange(e.target.value)}
               />
               {value.ClientInfo.DietaryRestrictions.touched && <ValidationError message={this.validateDietaryRestrictions()} />}
-              <SubBanner name='Please select all that apply'/>
+              <SubBanner name='Do you have limitations with any of the following?'/>
               <Select
                 id='client-select-1'
-                name='Limited Vision'
+                name='Vision'
                 required={true}
                 onChange={e => value.handleLimitedVisionChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.LimitedVision === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-2'
-                name='Limited Hearing'
+                name='Hearing'
                 reqired={true}
                 onChange={e => value.handleLimitedHearingChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
-              <Select
-                id='client-select-3'
-                name='Do you require oxygen?'
-                reqired={true}
-                onChange={e => value.handleRequireOxygenChange(e.target.value)}
-                options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
-              />
-              <Select
-                id='client-select-4'
-                name='Are you a smoker?'
-                reqired={true}
-                onChange={e => value.handleSmokerChange(e.target.value)}
-                options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
-              />
+              {value.ClientInfo.LimitedHearing === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-5'
-                name='Limited Mobility'
+                name='Mobility'
                 reqired={true}
                 onChange={e => value.handleLimitedMobilityChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.LimitedMobility === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-6'
                 name='Confusion'
@@ -88,6 +78,23 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleConfusionChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.Confusion === 'true' ? <ExplainBox /> : ''}
+              <Select
+                id='client-select-3'
+                name='Do you require oxygen?'
+                reqired={true}
+                onChange={e => value.handleRequireOxygenChange(e.target.value)}
+                options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
+              />
+              {value.ClientInfo.RequireOxygen === 'true' ? <ExplainBox /> : ''}
+              <Select
+                id='client-select-4'
+                name='Are you a smoker?'
+                reqired={true}
+                onChange={e => value.handleSmokerChange(e.target.value)}
+                options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
+              />
+              {value.ClientInfo.Smoker === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-7'
                 name='Do you have Lifeline?'
@@ -95,6 +102,7 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handleLifeLineChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.Lifeline === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-8'
                 name='Do you have pets?'
@@ -102,20 +110,23 @@ export default class ClientInfoForm extends Component {
                 onChange={e => value.handlePetsChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.Pets === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-9'
                 name='Do you take more than 4 medications daily?'
                 reqired={true}
-                onChange={e => value.handleMedicatonsChange(e.target.value)}
+                onChange={e => value.handleMedicationsChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.MedsTaken === 'true' ? <ExplainBox /> : ''}
               <Select
                 id='client-select-10'
                 name='Are you a Military Veteran?'
                 reqired={true}
-                onChange={e => value.handleRequireFormerMilitaryChange(e.target.value)}
+                onChange={e => value.handleFormerMilitayrChange(e.target.value)}
                 options={[{value: false, name: 'No'}, {value: true, name: 'Yes'}]}
               />
+              {value.ClientInfo.FormerMilitary === 'true' ? <ExplainBox /> : ''}
               <Button
                 name='Continue'
                 onClick={event => value.handleNextForInfo(event)}

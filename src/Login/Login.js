@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Context from '../Context'
+import SectionBanner from '../BasicComponents/SectionBanner'
+import SubBanner from '../BasicComponents/SubBanner'
+import Button from '../BasicComponents/Button'
+import TextInput from '../FormComponents/TextInput'
 import './Login.css'
 
 export default class Login extends Component {
@@ -15,40 +19,29 @@ export default class Login extends Component {
     render() {
         return(
             <form id='login-form'>
-                <label htmlFor='user-name'>User Name</label>
-                <input 
+                <TextInput
                     type='text'
                     id='user-name'
-                    className='login-input'
-                    name='user-name'
+                    name='User Name'
                     required={true}
-                    aria-required='true'
                     placeholder='Your user name here'
                 />
-                <label htmlFor='password'>Password</label>
-                <input
+                <TextInput
                     type='text'
                     id='password'
-                    className='login-input'
-                    name='password'
+                    name='Password'
                     required={true}
-                    aria-required='true'
                     placeholder='Your password here'
                 />
-                <button
-                    type='submit'
-                    id='login-button'
+                <Button
+                    name='Login'
                     onClick={this.handleLoginClick}
-                >
-                    Login
-                </button>
-                <h2 id='register-header'>New to Meals on Wheels? Click Register below to Sign up!</h2>
-                <button
-                    id='register-button' 
+                />
+                <SubBanner name='New to Meals on Wheels? Click Register below to Sign up!'/>
+                <Button
+                    name='Register' 
                     onClick={this.handleRegisterClick}
-                >
-                    Register
-                </button>
+                />
             </form>
         )
     }

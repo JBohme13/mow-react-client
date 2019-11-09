@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Context from '../Context'
 import './LoginCredsForm.css'
 import ValidationError from '../ValidationError/ValidationError';
-import ExplainBox from '../ExplainBox/ExplainBox';
+import ExplainBox from '../BasicComponents/ExplainBox';
 
 export default class LoginCredsForm extends Component {
     static contextType = Context;
